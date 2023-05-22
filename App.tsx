@@ -1,21 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View,} from 'react-native';
+import { Button, StyleSheet, Text, View,} from 'react-native';
 import {Image} from 'expo-image'
-import { useFonts } from 'expo-font';
-import * as Font from 'expo-font'
+import React from 'react';
 
 
 export default function App() {
+  const handlepress = () => {
+    console.log('clicou');
+  };
+  
   return (
     <View style={styles.container}>
       <View style={styles.div}>
       <Image style={styles.image} 
-      source={require('./assets/imagem2.jpg')}
-      />
+      source={require('./assets/imagem2.jpg')}/>
       </View>
       <Text style={styles.titulo}>Lavínia</Text>
       <Text style={styles.idade}> 25 anos</Text>
       <Text style={styles.bio}> Desenvolvedora Mobile em formação</Text>
+      <View style={styles.divbutton}>
+      <Button 
+      color="#483D8B"
+      title="Adicionar como Amigo" 
+      onPress={handlepress}/>
+      </View>
       <StatusBar style="auto" />
     </View>
   );
@@ -24,7 +32,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#9400D3',
+    backgroundColor: '#9370DB',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -32,6 +40,7 @@ const styles = StyleSheet.create({
   image:{
     width: 200,
     height: 400,
+    borderRadius:50,
   },
 
   titulo:{
@@ -64,7 +73,7 @@ const styles = StyleSheet.create({
   
   div:{
     position:'absolute',
-    backgroundColor:'#9400D3',
+    backgroundColor:'#9370DB',
     zIndex:1,
     width:300,
     height:300,
@@ -72,4 +81,18 @@ const styles = StyleSheet.create({
     left:100
 
   },
+  
+  divbutton:{
+    top:300,
+    left:5,
+    width:200,
+    height:200,
+    borderRadius:15,
+
+  },
+
+  
+ 
+
+
 });
